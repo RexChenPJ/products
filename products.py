@@ -12,3 +12,6 @@ while True:
 #上述7~11行，可簡寫成一行 products = [name ,price]
 
 print(products)
+
+for p in products:
+	print(p[0], '的價格是', p[1], '元')
