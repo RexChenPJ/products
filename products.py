@@ -1,15 +1,20 @@
+import os #作業系統(operating system)
+
 #讀取檔案
 products = []
-with open('products.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		#跳過商品及價格
-		if '商品,價格' in line:
-			continue #繼續(重下一次迴圈執行)
-		name, price = line.strip().split(',')
-		products.append([name, price])
+if os.path.isfile('products.csv'): #檢查檔案是否存在
+	print('此檔案存在!')
+	with open('products.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			#跳過商品及價格
+			if '商品,價格' in line:
+				continue #繼續(重下一次迴圈執行)
+			name, price = line.strip().split(',')
+			products.append([name, price])
+	print(products)
 
-print(products)
-
+else:
+	print('找不到檔案......')
 
 #讓使用者輸入
 while True:
@@ -27,7 +32,6 @@ print(products)
 #印出所有購買紀錄
 for p in products:
 	print(p[0], '的價格是', p[1], '元')
-
 
 #寫入檔案
 	#with為python獨有功能，可協助於執行完with裡程式碼後，自動關閉檔案。
