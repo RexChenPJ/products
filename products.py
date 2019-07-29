@@ -17,6 +17,7 @@ for p in products:
 	print(p[0], '的價格是', p[1], '元')
 
 #with為python獨有功能，可協助於執行完with裡程式碼後，自動關閉檔案。
+#開啟的編碼為utf-8
 with open('products.csv', 'w', encoding='utf-8') as f:
 	f.write('商品,價格\n')
 	for p in products:
