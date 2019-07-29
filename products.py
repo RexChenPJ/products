@@ -15,3 +15,8 @@ print(products)
 
 for p in products:
 	print(p[0], '的價格是', p[1], '元')
+
+#with為python獨有功能，可協助於執行完with裡程式碼後，自動關閉檔案。
+with open('products.csv', 'w') as f:
+	for p in products:
+		f.write(p[0] + ',' + p[1] + '\n')
